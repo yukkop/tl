@@ -50,7 +50,7 @@ while getopts 'hdsf:t:' flag; do
 done
 shift $(( OPTIND - 1 ))
 
-text="${*-"$(cat)"}"
+text="${*-"$([ ! -t 0 ] && cat)"}"
 from="${from:-"auto"}"
 to="${to:-"${TL_PRIMARY_TARGET_LANGUAGE}"}"
 
